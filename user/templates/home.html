@@ -7,7 +7,7 @@
 <h2>Select A User</h2>
 <ul>
     {% for user in users %}
-<button method="edit" >{{user}}</button>
+<button onclick="location.href = '{{user.id}}'" method="edit">{{user}}</button>
     {% endfor %}
 </ul>
 
@@ -19,8 +19,6 @@
 
     <button type="submit">Submit</button>
     <button type="reset">Cancel</button>
-    <!-- <input type="submit" value="Cancel"> -->
-    <!-- <input type="submit" value="Update"> -->
 
 </form>
 
