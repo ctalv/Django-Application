@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import User
-from .forms import NewUserForm
+from .forms import NewUserForm, EditUserForm
 
 # Create your views here.
 # request -> response
@@ -17,10 +17,13 @@ def home(request):
 
 # populates form with user info to be edited and added to database
 def edit(request, user_id):
-    users = User.objects.all()
-    user = get_object_or_404(User, id=user_id)
-    form = NewUserForm(instance=user)
-    return render(request, 'home.html', {'form': form, 'users':users})
+    user = User.objects.get(pk=user_id)
+    print(user.first_name)
+    form = EditUserForm(instance=user)
+    if form.is_valid():
+        form.save()
+
+    return render(request, 'user.html', {'form': form, 'user':user})
 
 # saves new user data
 def post(request):
