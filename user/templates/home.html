@@ -7,7 +7,7 @@
 <h2>Select A User</h2>
 <ul>
     {% for user in users %}
-<button onclick="location.href = {{user.id}}" method="edit">{{user}}</button>
+<button onclick="location.href = '{{user.id}}'" method="edit">{{user}}</button>
     {% endfor %}
 </ul>
 
