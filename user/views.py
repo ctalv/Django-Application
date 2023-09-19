@@ -14,10 +14,11 @@ from .forms import NewUserForm, EditUserForm
 def edit(request, user_id):
     user = User.objects.get(pk=user_id)
     form = EditUserForm(instance=user)
-    if request.method == 'PUT':
-        form = EditUserForm(request.PUT, instance=user)
+    if request.method == 'POST':
+        form = EditUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            
 
     return render(request, 'user.html', {'form': form, 'user':user})
 

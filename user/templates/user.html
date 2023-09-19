@@ -1,6 +1,6 @@
 
 <h2>Update {{user.first_name}}</h2>
-<form method="put">
+<form method="post">
     {% csrf_token %}
 
 {{ form.as_p }}
