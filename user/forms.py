@@ -8,7 +8,6 @@ class NewUserForm(forms.ModelForm):
                   'middle_initial',
                   'last_name',
                   'suffix',
-                  'full_name',
                   'email',
                   'gender'
                   ]
@@ -20,7 +19,6 @@ class EditUserForm(forms.ModelForm):
                   'middle_initial',
                   'last_name',
                   'suffix',
-                  'full_name',
                   'email',
                   'gender'
                   ]  
