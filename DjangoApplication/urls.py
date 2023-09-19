@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # any url that starts with playground should be routed to our playground app
-    path('home/', include('user.urls'))
+    path('', include('user.urls'))
 ]
