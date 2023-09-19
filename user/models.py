@@ -18,6 +18,7 @@ class User(models.Model):
     suffix = models.CharField(max_length=10, choices=SUFFIX)
     email = models.EmailField(max_length=100)
     gender = models.CharField(max_length=2, choices=GENDER)
+    full_name = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.create_full_name()
@@ -25,3 +26,7 @@ class User(models.Model):
     def create_full_name(self):
         full_name = ' '.join([self.first_name, self.middle_initial, self.last_name])  
         return full_name
+    
+    def save(self, *args, **kwargs):
+        self.full_name = self.create_full_name()
+        super(User, self).save(*args, **kwargs)
